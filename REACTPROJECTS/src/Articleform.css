@@ -1,0 +1,44 @@
+import { useState } from "react";
+
+function ArticleForm() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log({
+      title,
+      content,
+    });
+
+    alert("Article Submitted");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Add Article</h2>
+
+      <input
+        type="text"
+        placeholder="Enter Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+
+      <br /><br />
+
+      <textarea
+        placeholder="Enter Content"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default ArticleForm;
